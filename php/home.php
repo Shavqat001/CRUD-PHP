@@ -19,7 +19,7 @@
 </form>
 
 <script>
-    let editBtns = document.querySelectorAll('.edit-btn');
+    let editBtns= document.querySelectorAll('.edit-btn');
     let fields = document.querySelectorAll('.input-data-from-bd');
     for (const field of fields) {
         for (const btn of editBtns) {
