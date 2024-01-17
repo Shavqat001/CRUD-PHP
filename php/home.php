@@ -19,18 +19,28 @@
 </form>
 
 <script>
-    let editBtns= document.querySelectorAll('.edit-btn');
+    document.addEventListener('DOMContentLoaded', function () {
+    let editBtns = document.querySelectorAll('.edit-btn');
     let fields = document.querySelectorAll('.input-data-from-bd');
-    for (const field of fields) {
-        for (const btn of editBtns) {
-            field.onfocus = () => {
-                btn.style.display = 'inline-block';
+
+    fields.forEach(field => {
+        field.addEventListener('focus', () => {
+            let parentForm = field.closest('form');
+            let editBtn = parentForm.querySelector('.edit-btn');
+            if (editBtn) {
+                editBtn.style.display = 'inline-block';
             }
-            field.onblur = () => {
-                btn.style.display = 'none';
+        });
+
+        field.addEventListener('blur', () => {
+            let parentForm = field.closest('form');
+            let editBtn = parentForm.querySelector('.edit-btn');
+            if (editBtn) {
+                editBtn.style.display = 'none';
             }
-        }
-    }
+        });
+    });
+});
 </script>
 </body>
 </html>
